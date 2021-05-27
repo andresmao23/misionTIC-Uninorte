@@ -103,7 +103,7 @@ for candidato in lista_candidatos:
     elif candidato['re'] == reconocimiento_etnico['afrodescendiente']:
         cont_afrodescendiente = cont_afrodescendiente + 1
     elif candidato['re'] == reconocimiento_etnico['indigena']:
-        cont_sin_reconocimiento = cont_indigena + 1
+        cont_indigena = cont_indigena + 1
     elif candidato['re'] == reconocimiento_etnico['raizal']:
         cont_raizal = cont_raizal + 1
     elif candidato['re'] == reconocimiento_etnico['palenquero']:
