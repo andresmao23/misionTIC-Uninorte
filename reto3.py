@@ -40,7 +40,7 @@ while True:
     datos_candidato = input("Digite los datos del candidato (etnia, estrato, ingreso familiar): ")
     datos_candidato = datos_candidato.split(",")
     #print(datos_candidato)
-    re = datos_candidato[0]
+    re = datos_candidato[0].replace(" ", "_")
     es = datos_candidato[1]
     inf = float(datos_candidato[2])
     candidato['re'] = re
