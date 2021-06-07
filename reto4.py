@@ -66,8 +66,49 @@ print(matriz_etnias)
 print(matriz_estratos)
 print(matriz_ingresos)
 
-for dia in range(dias):
-    for j in range(cantidad+1):
+for i in range(len(matriz_etnias[0])):    
+    for j in range(len(matriz_etnias)):
+        '''print(matriz_etnias[j][i])
+        print(matriz_estratos[j][i])
+        print(matriz_ingresos[j][i])'''
+        candidato = {'re': '', 'es': '', 'inf': 0, 'puntaje': 0, 'pasa': False}
+        candidato['re'] = matriz_etnias[j][i]
+        candidato['es'] = matriz_estratos[j][i]
+        candidato['inf'] = matriz_ingresos[j][i]
+        if i == 0:
+            lista_candidatos_dia1.append(candidato)
+        elif i == 1:
+            lista_candidatos_dia2.append(candidato)
+        elif i == 2:
+            lista_candidatos_dia3.append(candidato)
+        elif i == 3:
+            lista_candidatos_dia4.append(candidato)
+        elif i == 4:
+            lista_candidatos_dia5.append(candidato)
+        elif i == 5:
+            lista_candidatos_dia6.append(candidato)
+        elif i == 6:
+            lista_candidatos_dia7.append(candidato)
+print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1', 10*'*')
+print(lista_candidatos_dia1)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 2', 10*'*')
+print(lista_candidatos_dia2)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 3', 10*'*')
+print(lista_candidatos_dia3)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 4', 10*'*')
+print(lista_candidatos_dia4)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 5', 10*'*')
+print(lista_candidatos_dia5)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6', 10*'*')
+print(lista_candidatos_dia6)
+print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7', 10*'*')
+print(lista_candidatos_dia7)
+
+'''for i in range(dias):
+    for j in range(3):
+        print(matriz_etnias[j][i])
+        #print(matriz_estratos[i][j])
+        #print(matriz_ingresos[i][j])
         candidato = {'re': '', 'es': '', 'inf': 0, 'puntaje': 0, 'pasa': False}
         candidato['re'] = matriz_etnias[j][dia]
         candidato['es'] = matriz_estratos[j][dia]
@@ -99,7 +140,7 @@ print(lista_candidatos_dia5)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6', 10*'*')
 print(lista_candidatos_dia6)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7', 10*'*')
-print(lista_candidatos_dia7)
+print(lista_candidatos_dia7)'''
 
 '''
 def evaluar_lista_candidatos(lista_candidatos):    
