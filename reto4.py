@@ -147,13 +147,14 @@ def evaluar_lista_candidatos(lista_candidatos):
 
     cant_candidatos_pasan = 0
     cant_candidatos_no_pasan = 0
+    cant_errores = 0
 
-    '''cont_sin_reconocimiento = 0
+    cont_sin_reconocimiento = 0
     cont_afrodescendiente = 0
     cont_indigena = 0
     cont_raizal = 0
     cont_palenquero = 0
-    cont_gitano = 0'''
+    cont_gitano = 0
 
     # Se suman los candidatos que continuan, los que no continuan y la cantidad de entradas erroneas
     for candidato in lista_candidatos:
@@ -164,20 +165,20 @@ def evaluar_lista_candidatos(lista_candidatos):
         elif candidato['pasa'] == -1:
             cant_errores = cant_errores + 1
 
-        if candidato['re'] == reconocimiento_etnico['sin_reconocimiento']:
+        if candidato['re'] == reconocimiento_etnico['1']:
             cont_sin_reconocimiento = cont_sin_reconocimiento + 1
-        elif candidato['re'] == reconocimiento_etnico['afrodescendiente']:
+        elif candidato['re'] == reconocimiento_etnico['2']:
             cont_afrodescendiente = cont_afrodescendiente + 1
-        elif candidato['re'] == reconocimiento_etnico['indigena']:
+        elif candidato['re'] == reconocimiento_etnico['3']:
             cont_indigena = cont_indigena + 1
-        elif candidato['re'] == reconocimiento_etnico['raizal']:
+        elif candidato['re'] == reconocimiento_etnico['4']:
             cont_raizal = cont_raizal + 1
-        elif candidato['re'] == reconocimiento_etnico['palenquero']:
+        elif candidato['re'] == reconocimiento_etnico['5']:
             cont_palenquero = cont_palenquero + 1
-        elif candidato['re'] == reconocimiento_etnico['gitano']:
+        elif candidato['re'] == reconocimiento_etnico['6']:
             cont_gitano = cont_gitano + 1
 
-    '''salida = {
+    salida = {
         'sin reconocimiento':cont_sin_reconocimiento,
         'afrodescendiente':cont_afrodescendiente,
         'indigena': cont_indigena,
@@ -185,17 +186,17 @@ def evaluar_lista_candidatos(lista_candidatos):
         'palenquero':cont_palenquero,
         'gitano':cont_gitano
     }
-    print(cant_candidatos_pasan, ' ', cant_candidatos_no_pasan, ' ', cant_errores)
+    #print(cant_candidatos_pasan, ' ', cant_candidatos_no_pasan, ' ', cant_errores)
     # Ordenar el diccionario de acuerdo a su valor (Primer criterio de ordenamiento)
     salida_ordenada = dict(sorted(salida.items(), key=operator.itemgetter(1),reverse=True))
 
-    sorted_list = sorted(salida_ordenada, key=lambda k: (salida_ordenada[k], k))
+    #sorted_list = sorted(salida_ordenada, key=lambda k: (salida_ordenada[k], k))
     # Ordeno la lista alfabeticamente, pero de manera descendente que es como la necesito finalmente (Segundo criterio de ordenamiento)
-    sorted_list_mao = sorted_list[::-1]
+    #sorted_list_mao = sorted_list[::-1]
 
-    for elemento in sorted_list_mao:
-        print(elemento, salida_ordenada[elemento])'''
-    return lista_candidatos, cant_candidatos_pasan
+    #for elemento in sorted_list_mao:
+        #print(elemento, salida_ordenada[elemento])
+    return lista_candidatos, cant_candidatos_pasan, salida_ordenada
 
 cant_candidatos_pasan_dia1 = 0
 cant_candidatos_pasan_dia2 = 0
@@ -205,13 +206,21 @@ cant_candidatos_pasan_dia5 = 0
 cant_candidatos_pasan_dia6 = 0
 cant_candidatos_pasan_dia7 = 0
 
-lista_candidatos_dia1, cant_candidatos_pasan_dia1 = evaluar_lista_candidatos(lista_candidatos_dia1)
-lista_candidatos_dia2, cant_candidatos_pasan_dia2 = evaluar_lista_candidatos(lista_candidatos_dia2)
-lista_candidatos_dia3, cant_candidatos_pasan_dia3 = evaluar_lista_candidatos(lista_candidatos_dia3)
-lista_candidatos_dia4, cant_candidatos_pasan_dia4 = evaluar_lista_candidatos(lista_candidatos_dia4)
-lista_candidatos_dia5, cant_candidatos_pasan_dia5 = evaluar_lista_candidatos(lista_candidatos_dia5)
-lista_candidatos_dia6, cant_candidatos_pasan_dia6 = evaluar_lista_candidatos(lista_candidatos_dia6)
-lista_candidatos_dia7, cant_candidatos_pasan_dia7 = evaluar_lista_candidatos(lista_candidatos_dia7)
+salida_ordenada_dia1 = {}
+salida_ordenada_dia2 = {}
+salida_ordenada_dia3 = {}
+salida_ordenada_dia4 = {}
+salida_ordenada_dia5 = {}
+salida_ordenada_dia6 = {}
+salida_ordenada_dia7 = {}
+
+lista_candidatos_dia1, cant_candidatos_pasan_dia1, salida_ordenada_dia1 = evaluar_lista_candidatos(lista_candidatos_dia1)
+lista_candidatos_dia2, cant_candidatos_pasan_dia2, salida_ordenada_dia2 = evaluar_lista_candidatos(lista_candidatos_dia2)
+lista_candidatos_dia3, cant_candidatos_pasan_dia3, salida_ordenada_dia3 = evaluar_lista_candidatos(lista_candidatos_dia3)
+lista_candidatos_dia4, cant_candidatos_pasan_dia4, salida_ordenada_dia4 = evaluar_lista_candidatos(lista_candidatos_dia4)
+lista_candidatos_dia5, cant_candidatos_pasan_dia5, salida_ordenada_dia5 = evaluar_lista_candidatos(lista_candidatos_dia5)
+lista_candidatos_dia6, cant_candidatos_pasan_dia6, salida_ordenada_dia6 = evaluar_lista_candidatos(lista_candidatos_dia6)
+lista_candidatos_dia7, cant_candidatos_pasan_dia7, salida_ordenada_dia7 = evaluar_lista_candidatos(lista_candidatos_dia7)
 
 print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1 NUEVA', 10*'*')
 print(lista_candidatos_dia1)
@@ -227,7 +236,15 @@ print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6 NUEVA', 10*'*')
 print(lista_candidatos_dia6)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7 NUEVA', 10*'*')
 print(lista_candidatos_dia7)
-
+print(50*'*')
+print(salida_ordenada_dia1)
+print(salida_ordenada_dia2)
+print(salida_ordenada_dia3)
+print(salida_ordenada_dia4)
+print(salida_ordenada_dia5)
+print(salida_ordenada_dia6)
+print(salida_ordenada_dia7)
+print(50*'*')
 print("{} {} {} {} {} {} {}".format(cant_candidatos_pasan_dia1, cant_candidatos_pasan_dia2,
                                     cant_candidatos_pasan_dia3, cant_candidatos_pasan_dia4,
                                     cant_candidatos_pasan_dia5, cant_candidatos_pasan_dia6,
