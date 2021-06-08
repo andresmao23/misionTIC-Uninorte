@@ -6,12 +6,12 @@ salario_minimo = 908526
 dias = 7
 
 reconocimiento_etnico = {}
-reconocimiento_etnico['sin_reconocimiento'] = 0
-reconocimiento_etnico['afrodescendiente'] = 4
-reconocimiento_etnico['indigena'] = 5
-reconocimiento_etnico['raizal'] = 6
-reconocimiento_etnico['palenquero'] = 7
-reconocimiento_etnico['gitano'] = 8
+reconocimiento_etnico['1'] = 0 #sin_reconocimiento
+reconocimiento_etnico['2'] = 4 #afrodescendiente
+reconocimiento_etnico['3'] = 5 #indigena
+reconocimiento_etnico['4'] = 6 #raizal
+reconocimiento_etnico['5'] = 7 #palenquero
+reconocimiento_etnico['6'] = 8 #gitano
 
 estrato_socioeconomico = {}
 estrato_socioeconomico['1'] = 10
@@ -104,45 +104,6 @@ print(lista_candidatos_dia6)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7', 10*'*')
 print(lista_candidatos_dia7)
 
-'''for i in range(dias):
-    for j in range(3):
-        print(matriz_etnias[j][i])
-        #print(matriz_estratos[i][j])
-        #print(matriz_ingresos[i][j])
-        candidato = {'re': '', 'es': '', 'inf': 0, 'puntaje': 0, 'pasa': False}
-        candidato['re'] = matriz_etnias[j][dia]
-        candidato['es'] = matriz_estratos[j][dia]
-        candidato['inf'] = matriz_ingresos[j][dia]
-        if dia == 0:
-            lista_candidatos_dia1.append(candidato)
-        elif dia == 1:
-            lista_candidatos_dia2.append(candidato)
-        elif dia == 2:
-            lista_candidatos_dia3.append(candidato)
-        elif dia == 3:
-            lista_candidatos_dia4.append(candidato)
-        elif dia == 4:
-            lista_candidatos_dia5.append(candidato)
-        elif dia == 5:
-            lista_candidatos_dia6.append(candidato)
-        elif dia == 6:
-            lista_candidatos_dia7.append(candidato)
-print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1', 10*'*')
-print(lista_candidatos_dia1)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 2', 10*'*')
-print(lista_candidatos_dia2)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 3', 10*'*')
-print(lista_candidatos_dia3)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 4', 10*'*')
-print(lista_candidatos_dia4)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 5', 10*'*')
-print(lista_candidatos_dia5)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6', 10*'*')
-print(lista_candidatos_dia6)
-print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7', 10*'*')
-print(lista_candidatos_dia7)'''
-
-'''
 def evaluar_lista_candidatos(lista_candidatos):    
     for candidato in lista_candidatos:
         flag_re = 0 # bandera para controlar la variable re
@@ -187,12 +148,12 @@ def evaluar_lista_candidatos(lista_candidatos):
     cant_candidatos_pasan = 0
     cant_candidatos_no_pasan = 0
 
-    cont_sin_reconocimiento = 0
+    '''cont_sin_reconocimiento = 0
     cont_afrodescendiente = 0
     cont_indigena = 0
     cont_raizal = 0
     cont_palenquero = 0
-    cont_gitano = 0
+    cont_gitano = 0'''
 
     # Se suman los candidatos que continuan, los que no continuan y la cantidad de entradas erroneas
     for candidato in lista_candidatos:
@@ -216,7 +177,7 @@ def evaluar_lista_candidatos(lista_candidatos):
         elif candidato['re'] == reconocimiento_etnico['gitano']:
             cont_gitano = cont_gitano + 1
 
-    salida = {
+    '''salida = {
         'sin reconocimiento':cont_sin_reconocimiento,
         'afrodescendiente':cont_afrodescendiente,
         'indigena': cont_indigena,
@@ -233,7 +194,7 @@ def evaluar_lista_candidatos(lista_candidatos):
     sorted_list_mao = sorted_list[::-1]
 
     for elemento in sorted_list_mao:
-        print(elemento, salida_ordenada[elemento])
+        print(elemento, salida_ordenada[elemento])'''
     return lista_candidatos, cant_candidatos_pasan
 
 cant_candidatos_pasan_dia1 = 0
@@ -265,4 +226,9 @@ print(lista_candidatos_dia5)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6 NUEVA', 10*'*')
 print(lista_candidatos_dia6)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7 NUEVA', 10*'*')
-print(lista_candidatos_dia7)'''
+print(lista_candidatos_dia7)
+
+print("{} {} {} {} {} {} {}".format(cant_candidatos_pasan_dia1, cant_candidatos_pasan_dia2,
+                                    cant_candidatos_pasan_dia3, cant_candidatos_pasan_dia4,
+                                    cant_candidatos_pasan_dia5, cant_candidatos_pasan_dia6,
+                                    cant_candidatos_pasan_dia7))
