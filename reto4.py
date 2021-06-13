@@ -62,9 +62,9 @@ while True:
     contador = contador + 1
     if contador > 3:
         break
-print(matriz_etnias)
-print(matriz_estratos)
-print(matriz_ingresos)
+#print(matriz_etnias)
+#print(matriz_estratos)
+#print(matriz_ingresos)
 
 for i in range(len(matriz_etnias[0])):    
     for j in range(len(matriz_etnias)):
@@ -89,7 +89,7 @@ for i in range(len(matriz_etnias[0])):
             lista_candidatos_dia6.append(candidato)
         elif i == 6:
             lista_candidatos_dia7.append(candidato)
-print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1', 10*'*')
+'''print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1', 10*'*')
 print(lista_candidatos_dia1)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 2', 10*'*')
 print(lista_candidatos_dia2)
@@ -102,7 +102,7 @@ print(lista_candidatos_dia5)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 6', 10*'*')
 print(lista_candidatos_dia6)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 7', 10*'*')
-print(lista_candidatos_dia7)
+print(lista_candidatos_dia7)'''
 
 def evaluar_lista_candidatos(lista_candidatos):    
     for candidato in lista_candidatos:
@@ -222,7 +222,7 @@ lista_candidatos_dia5, cant_candidatos_pasan_dia5, salida_ordenada_dia5 = evalua
 lista_candidatos_dia6, cant_candidatos_pasan_dia6, salida_ordenada_dia6 = evaluar_lista_candidatos(lista_candidatos_dia6)
 lista_candidatos_dia7, cant_candidatos_pasan_dia7, salida_ordenada_dia7 = evaluar_lista_candidatos(lista_candidatos_dia7)
 
-print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1 NUEVA', 10*'*')
+'''print(10*'*', 'LISTA DECANDIDATOS DEL DÍA 1 NUEVA', 10*'*')
 print(lista_candidatos_dia1)
 print(10*'*', 'LISTA DE CANDIDATOS DEL DIA 2 NUEVA', 10*'*')
 print(lista_candidatos_dia2)
@@ -246,7 +246,7 @@ print(salida_ordenada_dia6)
 print(salida_ordenada_dia7)
 print(50*'*')
 
-'''def minimums(some_dict):
+def minimums(some_dict):
     positions = [] # output variable
     min_value = float("inf")
     for k, v in some_dict.items():
@@ -307,14 +307,14 @@ lista_contadores.append(cont_gita)
 l = lista_contadores.sort()
 print(l)'''
 
-valores = {'sin reconocimiento':1, 'afrodescendiente':2, 'indigena':2, 'raizal':3, 'palenquero':4, 'gitano':5}
+valores = {'sin reconocimiento':1, 'afrodescendiente':2, 'indigena':3, 'raizal':4, 'palenquero':5, 'gitano':6}
 
-def menor_por_dia(d):
-    keys = [k for k, v in d.items() if v == 0]
+def menor_por_dia(d1):
+    keys = [k for k, v in d1.items() if v == 0]
     for x in keys:
-        del d[x]
-    minval = min(d.values())
-    res = [k for k, v in d.items() if v==minval]
+        del d1[x]
+    minval = min(d1.values())
+    res = [k for k, v in d1.items() if v==minval]
     menor = valores[res[0]]
     clave = ''
     for x in res:
@@ -322,9 +322,35 @@ def menor_por_dia(d):
             clave = x
     return clave
 
+cont_s_mayor = 0
+cont_a_mayor = 0
+cont_i_mayor = 0
+cont_r_mayor = 0
+cont_p_mayor = 0
+cont_g_mayor = 0
+
 def mayor_por_dia(d):
+    global cont_s_mayor
+    global cont_a_mayor
+    global cont_i_mayor
+    global cont_r_mayor
+    global cont_p_mayor
+    global cont_g_mayor
     mayval = max(d.values())
     res = [k for k, v in d.items() if v==mayval]
+    for i in res:
+        if i == 'sin reconocimiento':
+            cont_s_mayor += 1
+        elif i == 'afrodescendiente':
+            cont_a_mayor += 1
+        elif i == 'indigena':
+            cont_i_mayor += 1
+        elif i == 'raizal':
+            cont_r_mayor += 1
+        elif i == 'palenquero':
+            cont_p_mayor += 1
+        elif i == 'gitano':
+            cont_g_mayor += 1
     mayor = valores[res[0]]
     clave = ''
     for x in res:
@@ -332,22 +358,97 @@ def mayor_por_dia(d):
             clave = x
     return clave
 
-print('{},{},{},{},{},{},{}'.format(menor_por_dia(salida_ordenada_dia1),
-                                    menor_por_dia(salida_ordenada_dia2), 
-                                    menor_por_dia(salida_ordenada_dia3),
-                                    menor_por_dia(salida_ordenada_dia4),
-                                    menor_por_dia(salida_ordenada_dia5),
-                                    menor_por_dia(salida_ordenada_dia6),
-                                    menor_por_dia(salida_ordenada_dia7)))
+cont_s = 0
+cont_a = 0
+cont_i = 0
+cont_r = 0
+cont_p = 0
+cont_g = 0
 
-print('{},{},{},{},{},{},{}'.format(mayor_por_dia(salida_ordenada_dia1),
+def menor_por_dia_incluyendo_cero(d):
+    #keys = [k for k, v in d.items() if v == 0]
+    global cont_s
+    global cont_a
+    global cont_i
+    global cont_r
+    global cont_p
+    global cont_g
+    minval = min(d.values())
+    res = [k for k, v in d.items() if v==minval]
+    for i in res:
+        if i == 'sin reconocimiento':
+            cont_s += 1
+        elif i == 'afrodescendiente':
+            cont_a += 1
+        elif i == 'indigena':
+            cont_i += 1
+        elif i == 'raizal':
+            cont_r += 1
+        elif i == 'palenquero':
+            cont_p += 1
+        elif i == 'gitano':
+            cont_g += 1
+    menor = valores[res[0]]
+    clave = ''
+    for x in res:
+        if valores[x] <= menor:
+            clave = x
+    return clave
+
+s_o_d1 = dict(salida_ordenada_dia1)
+s_o_d2 = dict(salida_ordenada_dia2)
+s_o_d3 = dict(salida_ordenada_dia3)
+s_o_d4 = dict(salida_ordenada_dia4)
+s_o_d5 = dict(salida_ordenada_dia5)
+s_o_d6 = dict(salida_ordenada_dia6)
+s_o_d7 = dict(salida_ordenada_dia7)
+
+print('{},{},{},{},{},{},{}\n'.format(menor_por_dia(s_o_d1),
+                                    menor_por_dia(s_o_d2), 
+                                    menor_por_dia(s_o_d3),
+                                    menor_por_dia(s_o_d4),
+                                    menor_por_dia(s_o_d5),
+                                    menor_por_dia(s_o_d6),
+                                    menor_por_dia(s_o_d7)))
+menor_por_dia_incluyendo_cero(salida_ordenada_dia1)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia2)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia3)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia4)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia5)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia6)
+menor_por_dia_incluyendo_cero(salida_ordenada_dia7)                                    
+dict_menores = {
+    'sin reconocimiento':cont_s,
+    'afrodescendiente':cont_a,
+    'indigena':cont_i,
+    'raizal':cont_r,
+    'palenquero':cont_p,
+    'gitano':cont_g
+}
+print(cont_s, cont_a, cont_i, cont_r, cont_p, cont_g)
+max_key = max(dict_menores.items(), key=operator.itemgetter(1))[0]
+print(max_key)
+print()                                    
+
+print('{},{},{},{},{},{},{}\n'.format(mayor_por_dia(salida_ordenada_dia1),
                                     mayor_por_dia(salida_ordenada_dia2), 
                                     mayor_por_dia(salida_ordenada_dia3),
                                     mayor_por_dia(salida_ordenada_dia4),
                                     mayor_por_dia(salida_ordenada_dia5),
                                     mayor_por_dia(salida_ordenada_dia6),
                                     mayor_por_dia(salida_ordenada_dia7)))
-
+dict_mayores = {
+    'sin reconocimiento':cont_s_mayor,
+    'afrodescendiente':cont_a_mayor,
+    'indigena':cont_i_mayor,
+    'raizal':cont_r_mayor,
+    'palenquero':cont_p_mayor,
+    'gitano':cont_g_mayor
+}                                                                
+print(cont_s_mayor, cont_a_mayor, cont_i_mayor, cont_r_mayor, cont_p_mayor, cont_g_mayor)
+max_key_mayor = max(dict_mayores.items(), key=operator.itemgetter(1))[0]                                        
+print(max_key_mayor)
+print()
 print("{} {} {} {} {} {} {}".format(cant_candidatos_pasan_dia1, cant_candidatos_pasan_dia2,
                                     cant_candidatos_pasan_dia3, cant_candidatos_pasan_dia4,
                                     cant_candidatos_pasan_dia5, cant_candidatos_pasan_dia6,
