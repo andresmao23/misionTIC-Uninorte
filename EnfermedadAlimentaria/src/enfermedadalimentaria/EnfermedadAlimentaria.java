@@ -34,10 +34,9 @@ public class EnfermedadAlimentaria {
         int contDiagnostico5 = 0;
         int contDiagnostico6 = 0;
         
-        Scanner entrada = new Scanner(System.in);
+        //System.out.print("Digite la cantidad de pacientes: ");
         Scanner input = new Scanner(System.in);
-        System.out.print("Digite la cantidad de pacientes: ");
-        int n = entrada.nextInt();
+        int n = Integer.parseInt(input.nextLine());
         
         String [] datosPacientes = new String[n];
         for(int i=0;i<datosPacientes.length;i++){
@@ -91,29 +90,20 @@ public class EnfermedadAlimentaria {
             }            
         }
         if(contDiagnostico1>=contDiagnostico2 && contDiagnostico1>=contDiagnostico3
-                && contDiagnostico1>=contDiagnostico4 && contDiagnostico1>=contDiagnostico5
-                && contDiagnostico1>=contDiagnostico6){
+                && contDiagnostico1>=contDiagnostico4 && contDiagnostico1>=contDiagnostico5){
                 System.out.println(diagnosticos[0]);
         }else if(contDiagnostico2>=contDiagnostico1 && contDiagnostico2>=contDiagnostico3
-                && contDiagnostico2>=contDiagnostico4 && contDiagnostico2>=contDiagnostico5
-                && contDiagnostico2>=contDiagnostico6){
+                && contDiagnostico2>=contDiagnostico4 && contDiagnostico2>=contDiagnostico5){
                 System.out.println(diagnosticos[1]);
         }else if(contDiagnostico3>=contDiagnostico1 && contDiagnostico3>=contDiagnostico2
-                && contDiagnostico3>=contDiagnostico4 && contDiagnostico3>=contDiagnostico5
-                && contDiagnostico3>=contDiagnostico6){
+                && contDiagnostico3>=contDiagnostico4 && contDiagnostico3>=contDiagnostico5){
                 System.out.println(diagnosticos[2]);
         }else if(contDiagnostico4>=contDiagnostico1 && contDiagnostico4>=contDiagnostico2
-                && contDiagnostico4>=contDiagnostico3 && contDiagnostico4>=contDiagnostico5
-                && contDiagnostico4>=contDiagnostico6){
+                && contDiagnostico4>=contDiagnostico3 && contDiagnostico4>=contDiagnostico5){
                 System.out.println(diagnosticos[3]);
         }else if(contDiagnostico5>=contDiagnostico1 && contDiagnostico5>=contDiagnostico2
-                && contDiagnostico5>=contDiagnostico3 && contDiagnostico5>=contDiagnostico4
-                && contDiagnostico5>=contDiagnostico6){
+                && contDiagnostico5>=contDiagnostico3 && contDiagnostico5>=contDiagnostico4){
                 System.out.println(diagnosticos[4]);
-        }else if(contDiagnostico6>=contDiagnostico1 && contDiagnostico6>=contDiagnostico2
-                && contDiagnostico6>=contDiagnostico3 && contDiagnostico6>=contDiagnostico4
-                && contDiagnostico6>=contDiagnostico5){
-                System.out.println(diagnosticos[5]);
         }
         System.out.println(contDiagnostico6);
     }    
