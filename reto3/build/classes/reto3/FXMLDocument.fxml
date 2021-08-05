@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="615.0" style="-fx-background-color: #B2EBF2;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto3.FXMLDocumentController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold" text="Nombre" />
+      <TextField fx:id="txtNombre" layoutX="73.0" layoutY="10.0" />
+      <Label layoutX="14.0" layoutY="76.0" style="-fx-font-weight: bold;" text="Cédula" />
+      <TextField fx:id="txtCedula" layoutX="73.0" layoutY="72.0" />
+      <Label layoutX="13.0" layoutY="127.0" style="-fx-font-weight: bold;" text="Genero" />
+      <Label layoutX="243.0" layoutY="14.0" text="Nauceas" />
+      <Label layoutX="455.0" layoutY="76.0" text="Diarrea" />
+      <Label layoutX="455.0" layoutY="14.0" text="Vómito" />
+      <Label layoutX="243.0" layoutY="136.0" text="Fiebre" />
+      <Label layoutX="243.0" layoutY="77.0" text="Dolor abdominal" />
+      <Button fx:id="btnIngresar" layoutX="13.0" layoutY="182.0" mnemonicParsing="false" onAction="#ingresar" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #00BCD4;" text="Ingresar" />
+      <Button fx:id="btnProcesar" layoutX="174.0" layoutY="182.0" mnemonicParsing="false" onAction="#procesar" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #BDBDBD;" text="Procesar" />
+      <Label layoutX="14.0" layoutY="218.0" text="Datos ingresados" />
+      <Label layoutX="324.0" layoutY="218.0" text="Salidas" />
+      <TextArea fx:id="taDatosIngresados" layoutX="14.0" layoutY="235.0" prefHeight="133.0" prefWidth="278.0" />
+      <TextArea fx:id="taSalidas" layoutX="325.0" layoutY="235.0" prefHeight="133.0" prefWidth="278.0" />
+      <RadioButton fx:id="rbMasculino" layoutX="74.0" layoutY="119.0" mnemonicParsing="false" selected="true" text="M">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgGenero" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbFemenino" layoutX="73.0" layoutY="148.0" mnemonicParsing="false" text="F" toggleGroup="$tgGenero" />
+      <RadioButton fx:id="rbNauceasSi" layoutX="343.0" layoutY="14.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgNauceas" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbNauceasNo" layoutX="386.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgNauceas" />
+      <RadioButton fx:id="rbVomitoSi" layoutX="504.0" layoutY="14.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgVomito" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbVomitoNo" layoutX="547.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgVomito" wrapText="true" />
+      <RadioButton fx:id="rbDolorSi" layoutX="340.0" layoutY="77.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgDolor" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbDolorNo" layoutX="383.0" layoutY="77.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgDolor" wrapText="true" />
+      <RadioButton fx:id="rbDiarreaSi" layoutX="507.0" layoutY="76.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgDiarrea" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbDiarreaNo" layoutX="550.0" layoutY="76.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgDiarrea" wrapText="true" />
+      <RadioButton fx:id="rbFiebreSi" layoutX="340.0" layoutY="136.0" mnemonicParsing="false" text="Si">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgFiebre" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbFiebreNo" layoutX="383.0" layoutY="136.0" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgFiebre" wrapText="true" />
+   </children>
+</AnchorPane>
